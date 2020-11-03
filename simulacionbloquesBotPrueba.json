@@ -1,0 +1,284 @@
+{
+    "mensajesIntroduccion_01inicial_inicial": {
+        "type": "case",
+        "description": "bloque que funciona como case",
+        "parameters": {
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "contador_mensajesIntroduccion",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "method": "GET",
+            "typing_messages": 3,
+            "url": "http://127.0.0.1:1111/increase/contador_mensajesIntroduccion/3",
+            "messages": "¡Hola! Soy Niza.,Un asistente virtual para atención ciudadana puedo responder dudas sobre tu agua potable,Te gustaría saber cómo utilizarme",
+            "default_message": "No te entiendo",
+            "type_default_message": "text",
+            "type_messages": "text,text,text",
+            "options": "mensajesIntroduccion_01inicial_inicial,mensajesIntroduccion_01inicial_inicial,mensajesIntroduccion_01inicial_restarVariable"
+        },
+        "outputs": {
+            "default_id": "menuIntroduccion_01inicial_inicial"
+        },
+        "name": "mensajesIntroduccion_01inicial_inicial"
+    },
+    "mensajesIntroduccion_01inicial_restarVariable": {
+        "type": "internalProcess",
+        "description": "bloque para realizar proceso interno del sistema",
+        "parameters": {
+            "method": "GET",
+            "url": "http://127.0.0.1:1111/restar/contador_mensajesIntroduccion"
+        },
+        "outputs": {
+            "next_true": "menuIntroduccion_01inicial_inicial",
+            "next_false": "menuIntroduccion_01inicial_inicial"
+        },
+        "name": "mensajesIntroduccion_01inicial_restarVariable"
+    },
+    "menuIntroduccion_01inicial_inicial": {
+        "type": "quickReply",
+        "description": "bloque que despliega un quickReplay",
+        "parameters": {
+            "handlebars": "@jsonMenu",
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "qr_menuIntro",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "typingtime": 5,
+            "json": {
+                "content": "Toca uno de los botones azules para saber tu elección",
+                "buttons": [
+                    {
+                        "title": "¡ok veamos!",
+                        "next_block": "mensajesIntroduccion2_01inicial_inicial"
+                    },
+                    {
+                        "title": "Prefiero ir al menú",
+                        "next_block": "mensajePreMenu_01inicial_inicial"
+                    }
+                ]
+            },
+            "content": "Toca uno de los botones azules para saber tu elección",
+            "buttonTrue": {
+                "title": "¡ok veamos!",
+                "next_block": "mensajesIntroduccion2"
+            },
+            "buttonFalse": {
+                "title": "Prefiero ir al menú",
+                "next_block": "mensajePreMenu"
+            },
+            "typeVisual": "quickReply"
+        },
+        "outputs": {
+            "default_id": "mensajePreMenu_01inicial_inicial"
+        },
+        "name": "menuIntroduccion_01inicial_inicial"
+    },
+    "mensajePreMenu_01inicial_inicial": {
+        "type": "case",
+        "description": "bloque que funciona como case",
+        "parameters": {
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "qrd_mensaje_premenu",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "method": "GET",
+            "typing_messages": 3,
+            "url": "http://127.0.0.1:1111/random/qrd_mensaje_premenu/3",
+            "messages": "¿Ahora en qué puedo ayudarte?,¿Cómo puedo ayudarte? ,¿Qué te gustaría hacer?",
+            "default_message": "no te entiendo",
+            "type_default_message": "text",
+            "type_messages": "text,text,text",
+            "options": "qrPersonalidad_01inicial_inicial,qrPersonalidad_01inicial_inicial,qrPersonalidad_01inicial_inicial"
+        },
+        "outputs": {
+            "default_id": "qrPersonalidad_01inicial_inicial"
+        },
+        "name": "mensajePreMenu_01inicial_inicial"
+    },
+    "mensajesIntroduccion2_01inicial_inicial": {
+        "type": "case",
+        "description": "bloque que funciona como case",
+        "parameters": {
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "mensage_intro2",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "method": "GET",
+            "typing_messages": 3,
+            "url": "http://127.0.0.1:1111/increase/mensage_intro2/2",
+            "messages": "Soy un robot que funciona con un sistema automático llamado inteligencia artificial.,Cada vez que escribas intentare entenderte si algo se me dificulta siempre podre contactarte con un humano.",
+            "default_message": "no logro comprenderte",
+            "type_default_message": "text",
+            "type_messages": "text,text",
+            "options": "mensajesIntroduccion2_01inicial_inicial,mensajesIntroduccion2_01inicial_restarVariable"
+        },
+        "outputs": {
+            "default_id": "mensajesIntroduccion_01inicial_inicial"
+        },
+        "name": "mensajesIntroduccion2_01inicial_inicial"
+    },
+    "mensajesIntroduccion2_01inicial_restarVariable": {
+        "type": "internalProcess",
+        "description": "bloque para realizar proceso interno del sistema",
+        "parameters": {
+            "method": "GET",
+            "url": "http://127.0.0.1:1111/restar/mensage_intro2"
+        },
+        "outputs": {
+            "next_true": "pregunta_01inicial_inicial",
+            "next_false": "pregunta_01inicial_inicial"
+        },
+        "name": "mensajesIntroduccion2_01inicial_restarVariable"
+    },
+    "qrPersonalidad_01inicial_inicial": {
+        "type": "quickReply",
+        "description": "bloque que despliega un quickReplay",
+        "parameters": {
+            "handlebars": {
+                "content": "Selecciona una opción",
+                "buttons": [
+                    {
+                        "title": "¿Con quién estoy hablando?",
+                        "next_block": "mensajesIntroduccion"
+                    },
+                    {
+                        "title": "¿Qué edad tienes?",
+                        "next_block": "infoEdad"
+                    },
+                    {
+                        "title": "¿Cuál es tu color favorito?",
+                        "next_block": "infoColor"
+                    }
+                ]
+            },
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "qr_personalidad",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "Numerico"
+                }
+            },
+            "typingtime": 3,
+            "json": {
+                "content": "Selecciona una opción",
+                "buttons": [
+                    {
+                        "title": "¿Con quién estoy hablando?",
+                        "next_block": "mensajesIntroduccion_01inicial_inicial"
+                    },
+                    {
+                        "title": "¿Qué edad tienes?",
+                        "next_block": "infoEdad_01inicial_inicial"
+                    },
+                    {
+                        "title": "¿Cuál es tu color favorito?",
+                        "next_block": "infoColor_01inicial_inicial"
+                    }
+                ]
+            },
+            "content": "@content",
+            "buttonTrue": "@buttonTrue",
+            "buttonFalse": "@buttonFalse",
+            "typeVisual": "quickReply"
+        },
+        "outputs": {
+            "default_id": "NLPpersonalidad_01inicial_inicial"
+        },
+        "name": "qrPersonalidad_01inicial_inicial"
+    },
+    "infoEdad_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega información",
+        "name": "infoEdad_01inicial_inicial",
+        "parameters": {
+            "contenido": "Mmmm yo tengo 21 años con 6 meses",
+            "contenttype": "text",
+            "typingtime": 3
+        },
+        "outputs": {
+            "next_id": "mensajePreMenu_01inicial_inicial"
+        }
+    },
+    "infoColor_01inicial_inicial": {
+        "type": "informativo",
+        "description": "bloque que despliega información",
+        "name": "infoColor_01inicial_inicial",
+        "parameters": {
+            "contenido": "Mi color favorito es el azul porque me recuerda el cielo y el mar.",
+            "contenttype": "text",
+            "typingtime": 3
+        },
+        "outputs": {
+            "next_id": "mensajePreMenu_01inicial_inicial"
+        }
+    },
+    "pregunta_01inicial_inicial": {
+        "type": "input",
+        "description": "bloque que captura información y hace validacion con regex",
+        "name": "pregunta_01inicial_inicial",
+        "parameters": {
+            "contenido": "¿Qué deseas hacer?",
+            "contenttype": "text",
+            "typingtime": 1,
+            "validacion": ".*",
+            "jsonVariable": {
+                "variable": {
+                    "name_var": "var_pregunta",
+                    "opc_type": "Variable",
+                    "var": 0,
+                    "opc_data": "String"
+                }
+            }
+        },
+        "outputs": {
+            "next_id": "NLPpersonalidad_01inicial_inicial",
+            "default_id": "NLPpersonalidad_01inicial_inicial"
+        }
+    },
+    "NLPpersonalidad_01inicial_inicial": {
+        "type": "nlp",
+        "description": "bloque de procesamiento de lenguaje  natural",
+        "name": "NLPpersonalidad_01inicial_inicial",
+        "parameters": {
+            "default_message": "Lo siento pero no logro comprender lo que me pides",
+            "json_nlp": {
+                "intentions": [],
+                "entities": [],
+                "conditionals": [
+                    {
+                        "condition": "#identidad",
+                        "next": "mensajesIntroduccion_01inicial_inicial"
+                    },
+                    {
+                        "condition": "#edad",
+                        "next": "infoEdad_01inicial_inicial"
+                    },
+                    {
+                        "condition": "#color",
+                        "next": "infoColor_01inicial_inicial"
+                    }
+                ]
+            }
+        },
+        "outputs": {
+            "default_id": "mensajesIntroduccion_01inicial_inicial"
+        }
+    }
+}

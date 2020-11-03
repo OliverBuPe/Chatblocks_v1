@@ -1,0 +1,9 @@
+{
+  "name_robot": "oliverBot",
+  "id_face": "430761350747124",
+  "block_ini": "mensajesIntroduccion_01inicial_inicial",
+  "type_blocki": "case",
+  "access_token": "EAAJjZAQWaAbgBAAxC53jaIzoxSpgY3qZBc0pYDlb5g3E58pTJ35vAzrsZBVSyiYPhpgZB3ZAeNqx18ImA0LZCcsqL96hFDqsE9fcXUk52ofVsqWeerVDKp0cGo2wvohq5ISdkCUX7ZByd4c80Y6BstQYbe5noQhC8L7wdtMuKyZAAgZDZD",
+  "id_user": "oliverbp88@gmail.com",
+  "api_nlp":"http://localhost:8282/"
+}
